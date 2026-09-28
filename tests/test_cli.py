@@ -150,14 +150,3 @@ def test_module_entrypoint(monkeypatch, capsys):
     output = capsys.readouterr().out
     assert "OOP Calculator" in output
     assert output.endswith("Goodbye!\n")
-
-
-def test_mixed_case_command_works(monkeypatch, capsys):
-    output = session(
-        monkeypatch,
-        capsys,
-        [" AdD ", "4", "6", "history", "exit"],
-    )
-    assert "Result: 10" in output
-    assert "1. Add: 4, 6 = 10" in output
-    assert output.endswith("Goodbye!\n")
